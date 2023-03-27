@@ -13,7 +13,7 @@ from streamlit_option_menu import option_menu
 
 
 
-abalone_model=pickle.load(open('C:/Users/HP/OneDrive/Desktop/internship_116/abalone_model.sav','rb'))
+abalone_model=pickle.load(open('abalone_model.sav','rb'))
 
 # creating a function for Prediction
 
