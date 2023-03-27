@@ -9,19 +9,13 @@ import numpy as np
 import pandas as pd
 import pickle
 import streamlit as st
+from streamlit_option_menu import streamlit_option_menu
 
-from PIL import Image
 
-pickel_in=open('model.pkl', 'rb') 
-model=pickle.load(pickel_in)
+
+abalone_model=pickle.load(open('C:/Users/HP/OneDrive/Desktop/internship_116/abalone_model.sav'))
 
 # creating a function for Prediction
-
-def Abalone_prediction(length,height,whole_weight,sex_I,sex_M):
-
-    prediction=model.predict([[length,height,whole_weight,sex_I,sex_M]])
-    print(prediction)
-    return prediction
 
 
 def main():
@@ -48,7 +42,7 @@ def main():
     # creating a button for Prediction
     
     if st.button('predict'):
-        Result= Abalone_prediction(length,height,whole_weight,sex_I,sex_M)
+        Result= abalone_model(length,height,whole_weight,sex_I,sex_M)
     st.success('The output is {}'.format(Result))
     if st.button("About"):
        st.text('Lets LEarn')
